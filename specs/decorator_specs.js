@@ -58,6 +58,19 @@ describe("Decorator", function(){
         decorator.paint(ableToPaint, room1)
         const actual = room1.painted
         assert.strictEqual(actual, true)
+    });
+
+    it('should be able to reduce amount of paint while painting', function(){
+        let room1 = new Room(50)
+        let can = new PaintCan(30)
+        let can2 = new PaintCan(30)
+        decorator.addPaintCan(can)
+        decorator.addPaintCan(can2)
+        ableToPaint = decorator.canWePaint(room1)
+        decorator.paint(ableToPaint, room1)
+        const actual = decorator.getTotalPaint()
+        assert.strictEqual(actual, 10)
+
     })
 
 })

@@ -27,6 +27,17 @@ Decorator.prototype.canWePaint = function(room){
 
 Decorator.prototype.paint = function(readyToPaint, room){
     if (readyToPaint){
+        let area = room.area
+        let remainingArea = room.area
+        
+        for(const paint_can of this.paintStock){
+            if(paint_can.litres <= remainingArea){
+                remainingArea = remainingArea - paint_can.litres
+                paint_can.litres = 0
+            } else {
+                paint_can.litres -= remainingArea
+            }
+        }
         room.painted = true
     }
 }
