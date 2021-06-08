@@ -10,4 +10,8 @@ PaintCan.prototype.checkEmpty = function(){
     }
 }
 
+PaintCan.prototype.empty = function(){
+    this.litres = 0
+}
+
 module.exports = PaintCan;

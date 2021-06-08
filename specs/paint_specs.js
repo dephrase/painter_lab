@@ -17,6 +17,12 @@ describe("PaintCan", function(){
     it('should be able to check if empty', function(){
         const actual = paintCan.checkEmpty()
         assert.strictEqual (actual, false)
+    });
+
+    it('should be able to empty itself of paint', function(){
+        paintCan.empty();
+        const actual = paintCan.litres
+        assert.strictEqual(actual, 0)
     })
 
 })
