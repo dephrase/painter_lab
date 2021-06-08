@@ -42,5 +42,15 @@ Decorator.prototype.paint = function(readyToPaint, room){
     }
 }
 
+Decorator.prototype.removeEmptyCans = function(){
+    let count = 0
+    for(const can of this.paintStock){
+        if(can.litres === 0){
+            this.paintStock.splice(count, 1)
+        }
+        count++;
+    }
+}
+
 
 module.exports = Decorator

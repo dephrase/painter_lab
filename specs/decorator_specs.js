@@ -71,6 +71,19 @@ describe("Decorator", function(){
         const actual = decorator.getTotalPaint()
         assert.strictEqual(actual, 10)
 
+    });
+
+    it('should be able to remove empty paint cans', function(){
+        let room1 = new Room(15)
+        let can = new PaintCan(10)
+        let can2 = new PaintCan(10)
+        decorator.addPaintCan(can)
+        decorator.addPaintCan(can2)
+        ableToPaint = decorator.canWePaint(room1)
+        decorator.paint(ableToPaint, room1)
+        decorator.removeEmptyCans()
+        const actual = decorator.paintStock.length
+        assert.strictEqual(actual, 1)
     })
 
 })
