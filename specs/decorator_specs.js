@@ -84,6 +84,19 @@ describe("Decorator", function(){
         decorator.removeEmptyCans()
         const actual = decorator.paintStock.length
         assert.strictEqual(actual, 1)
-    })
+    });
+
+    it('should remove all cans if all are empty', function(){
+        let room1 = new Room(20)
+        let can = new PaintCan(10)
+        let can2 = new PaintCan(10)
+        decorator.addPaintCan(can)
+        decorator.addPaintCan(can2)
+        ableToPaint = decorator.canWePaint(room1)
+        decorator.paint(ableToPaint, room1)
+        decorator.removeEmptyCans()
+        const actual = decorator.paintStock.length
+        assert.strictEqual(actual, 0)
+    });
 
 })
